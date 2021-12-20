@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:white">
+
+    <a-camera position="0 8 15"></a-camera>
+
+    <!--Asset Management-->
+    <a-assets timeout="10000">
+
+      <a-asset-item id="tiger" src="./models/tiger/Mesh_BengalTiger.gltf"></a-asset-item>
+
+      <a-asset-item id="puppy" src="./models/puppy/scene.gltf"></a-asset-item>
+
+      <!-- Lights in the scene -->
+
+      <!--Ambient-->
+       <a-entity light="type: ambient; intensity: 0.5;"> 
+
+       </a-entity>
+      
+      <!-- Directional -->
+      <a-entity animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur:6000">
+        <a-entity light="type: directional; castShadow: true; intensity: 1; distance:50; decay: 2; color: yellow" position:"-100 18 20"> 
+
+        </a-entity>
+
+      </a-entity>
+      
+
+    </a-assets>
+
+    <!--Circular plane for the ground-->
+    <a-circle position="-0.5 -0.8 -25" rotation= "-50 0 0" radius="100" shadow="receive: true" visible="true" color="#58db6e">
+
+    </a-circle>
+
+    <!--GLTF Models-->
+
+    <!--Tiger-->
+    <a-entity>
+      <a-entity position="-5 2 0" rotation="0 55 0" scale="0.05 0.05 0.05" gltf-model="#tiger" shadow="cast: true">
+      </a-entity>
+    </a-entity>
+
+
+    <a-entity>
+      <a-entity position="7 8 0" rotation="0 -50 0" scale="0.007 0.007 0.007" gltf-model="#puppy" shadow="cast: true">
+      </a-entity>
+    </a-entity>
+
+    </a-entity>    
+
+  </a-scene>
+</body>
+
+</html>
